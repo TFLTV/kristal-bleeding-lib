@@ -4,7 +4,7 @@
 ---@field bleeders                  PartyBattler[]                 Party Members who bleed.
 ---@field graze_heal                number                         How much grazing heals you.
 ---@field bleed_amount              number                         How much health you lose per bleed. (Maybe can be a float?? idk)
----@field do_bleed                  bool                           If bleeding is toggled. (Also controls graze heal)
+---@field do_bleed                  boolean                        If bleeding is toggled. (Also controls graze heal)
 
 local Battle, super = Class("Battle")
 
