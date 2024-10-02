@@ -1,0 +1,13 @@
+{
+    "id": "magical-glass",
+    "authors": [
+        "TFLTV", // The person who created this library
+        "KuroSora" // Made the original mod: https://gamebanana.com/mods/398639
+    ],
+    "version": "v2.1.0",
+    "engineVer": "v0.9.0-dev",
+
+    "config": {
+
+    }
+}
