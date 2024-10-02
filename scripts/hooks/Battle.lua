@@ -23,8 +23,10 @@ function Battle:update()
     
     for _,bullet in ipairs(Game.stage:getObjects(Bullet)) do
         
-        if bullet.tp ~= 0 and bullet:collidesWith(self.soul.graze_collider) and bullet.grazed == false and self.soul.inv_timer == 0 then -- Bullet tp is not 0 and bullet is grazing and bullet is not already been grazed and soul does not have inv time
+        if bullet.tp ~= 0 and bullet:collidesWith(self.soul.graze_collider) and not bullet.graze_healed and self.soul.inv_timer <= 0 then -- Bullet tp is not 0 and bullet is grazing and bullet is not already been grazed and soul does not have inv time
             
+            bullet.graze_healed = true -- Look its just cuz i want this to work without any extra things (such as overriding the souls update function)
+
             local graze_heal =
             bullet.graze_heal or 
 
