@@ -10,7 +10,7 @@ There are multiple variables that can be set to customize the settings.
 
 -----
 ### `Battle.bleeders`/`Game.bleeders`
-`Battle.bleeders`, or `Game.bleeders` will set the party-members who bleed. `Battle.bleeders` takes priority over `Game.bleeders`, so if `Battle.bleeders` is set, `Game.bleeders` will not take affect. `Battle.bleeders` can either be party indexes (that will be used in `Game.battle.party[index]`) or `PartyBattler` objects. `Game.bleeders`, however, can only be party indexes. Defaults to the first `PartyBattler` in `Game.battle.party`
+`Battle.bleeders`, or `Game.bleeders` will set the party-members who bleed. `Battle.bleeders` takes priority over `Game.bleeders`, so if `Battle.bleeders` is set, `Game.bleeders` will not take affect. `Battle.bleeders` can either be party indexes (that will be used in `Battle.party[index]`) or `PartyBattler` objects. `Game.bleeders`, however, can only be party indexes. Defaults to the first `PartyBattler` in `Battle.party`
 
 -----
 ### `Battle.do_bleed`/`Game.do_bleed`
@@ -25,9 +25,9 @@ There are multiple variables that can be set to customize the settings.
 `Bullet.graze_heal`, `Wave.graze_heal`, `EnemyBattler.graze_heal`, `Soul.graze_heal`, `Battle.graze_heal`, or `Game.graze_heal` sets the amount of health the bleeders will regenerate everytime the soul grazes a bullet. `Bullet.graze_heal` takes priority over `Wave.graze_heal`. `Wave.graze_heal` takes priority over `EnemyBattler.graze_heal`. `EnemyBattler.graze_heal` takes priority over `Soul.graze_heal`. `Soul.graze_heal` takes priority over `Battle.graze_heal`. `Battle.graze_heal` takes priority over `Game.graze_heal`. Defaults to `10 + Utils.random(0,2,1)`
 
 -----
-### `Game.battle.moving_bleed_time`/`Game.moving_bleed_time`
-`Game.battle.moving_bleed_time`, or `Game.moving_bleed_time` controls how much time it takes for every bleed damage to trigger while the soul is moving. `Game.battle.moving_bleed_time` takes priority over `Game.moving_bleed_time`. Defaults to `4/30`.
+### `Battle.moving_bleed_time`/`Game.moving_bleed_time`
+`Battle.moving_bleed_time`, or `Game.moving_bleed_time` controls how much time it takes for every bleed damage to trigger while the soul is moving. `Battle.moving_bleed_time` takes priority over `Game.moving_bleed_time`. Defaults to `4/30`.
 
 -----
-### `Game.battle.idle_bleed_time`/`Game.idle_bleed_time`
-`Game.battle.idle_bleed_time`, or `Game.idle_bleed_time` controls how much time it takes for every bleed damage to trigger while the soul is not moving. `Game.battle.idle_bleed_time` takes priority over `Game.idle_bleed_time`. Defaults to `2/30`.
+### `Battle.idle_bleed_time`/`Game.idle_bleed_time`
+`Battle.idle_bleed_time`, or `Game.idle_bleed_time` controls how much time it takes for every bleed damage to trigger while the soul is not moving. `Battle.idle_bleed_time` takes priority over `Game.idle_bleed_time`. Defaults to `2/30`.
