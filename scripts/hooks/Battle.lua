@@ -20,47 +20,6 @@ function Battle:update()
     local bleeders = self.bleeders or (Game.bleeders or {self.party[1]}) -- There, if you wanna change it, it's easy. -- self.bleeder uses PartyBattlers and numbers, Game.bleeders only uses numbers
     local bleed = (self.do_bleed or Game.do_bleed) ~= false
     local bleed_amount = self.bleed_amount or (Game.bleed_amount or 1)
-    
-    for _,bullet in ipairs(Game.stage:getObjects(Bullet)) do
-        
-        if bullet.tp ~= 0 and bullet:collidesWith(self.soul.graze_collider) and not bullet.graze_healed and self.soul.inv_timer <= 0 then -- Bullet tp is not 0 and bullet is grazing and bullet is not already been grazed and soul does not have inv time
-            
-            bullet.graze_healed = true -- Look its just cuz i want this to work without any extra things (such as overriding the souls update function)
-
-            local graze_heal =
-            bullet.graze_heal or 
-
-            ((bullet.wave and bullet.wave.graze_heal) or 
-
-            ((bullet.attacker and bullet.attacker.graze_heal) or 
-
-            (self.soul.graze_heal or 
-
-            (self.graze_heal or 
-
-            (Game.bleed_graze_heal or 
-
-            10+Utils.random(0,2,1) ))))) -- HELL
-            -- The lower it is on the list, the less priority it has (Higher values on the list 'overwrite' the lower ones if they exist, the bottom value will always exist).
-
-            -- It seems that in the original mod, the graze heal is determined by bullet/enemy so uhh set it.
-
-            for _,bleeder in ipairs(bleeders) do
-                if not bleed then break end
-                if type(bleeder) == "number" then bleeder = self.party[bleeder] end
-
-                if not bleeder.is_down then
-
-                    bleeder.chara:setHealth( bleeder.chara:getHealth() + graze_heal )
-
-                    if bleeder.chara:getHealth() >= bleeder.chara:getStat("health") then
-                        bleeder.chara:setHealth(bleeder.chara:getStat("health"))
-                    end
-
-                end
-            end
-        end
-    end
 
     if self:getState() == "DEFENDING" then
         if self.bleed_timer <= 0 then
