@@ -12,7 +12,7 @@ local Battle, super = Class("Battle")
 
 function Battle:init()
 	super.init(self)
-    self.bleed_timer = 4/30 -- Every four frames
+    self.bleed_timer = 0
     self.bleeders = {self.party[1]}
 end
 
