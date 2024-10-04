@@ -5,6 +5,7 @@ function Soul:update()
     if Game.battle then
         local bleed = (Game.battle.do_bleed or Game.do_bleed) ~= false
         local bleeders = Game.battle.bleeders or (Game.bleeders or {Game.battle.party[1]})
+        Object.startCache()
         for _,bullet in ipairs(Game.stage:getObjects(Bullet)) do
             
             if bullet.tp ~= 0 and bullet:collidesWith(self.graze_collider) and not bullet.grazed and self.inv_timer <= 0 then -- Bullet tp is not 0 and bullet is grazing and bullet is not already been grazed and soul does not have inv time
@@ -43,6 +44,7 @@ function Soul:update()
                 end
             end
         end
+        Object.endCache()
     end
 
 	super.update(self)
